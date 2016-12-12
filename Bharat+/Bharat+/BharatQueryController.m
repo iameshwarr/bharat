@@ -53,5 +53,10 @@
     
 }
 
+-(void)retrieveNewsFeedFromServer:(RegisterDTO *)requestData
+{
+        
+}
+
 
 @end
