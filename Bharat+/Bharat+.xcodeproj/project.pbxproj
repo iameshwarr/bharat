@@ -13,20 +13,21 @@
 		8BCF34BB1DFE9B140010B68D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCF34B91DFE9B140010B68D /* Main.storyboard */; };
 		8BCF34BD1DFE9B140010B68D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCF34BC1DFE9B140010B68D /* Assets.xcassets */; };
 		8BCF34C01DFE9B140010B68D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCF34BE1DFE9B140010B68D /* LaunchScreen.storyboard */; };
-		8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34C81DFE9F900010B68D /* BharatQueryController.m */; settings = {ASSET_TAGS = (); }; };
-		8BCF34CC1DFEA0A30010B68D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34CA1DFEA0A30010B68D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		8BCF34CD1DFEA0A30010B68D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34CB1DFEA0A30010B68D /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34C81DFE9F900010B68D /* BharatQueryController.m */; };
+		8BCF34CC1DFEA0A30010B68D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34CA1DFEA0A30010B68D /* Bolts.framework */; };
+		8BCF34CD1DFEA0A30010B68D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34CB1DFEA0A30010B68D /* Parse.framework */; };
 		8BCF34CF1DFEA0CE0010B68D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34CE1DFEA0CE0010B68D /* AudioToolbox.framework */; };
 		8BCF34D11DFEA0DC0010B68D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34D01DFEA0DC0010B68D /* CFNetwork.framework */; };
 		8BCF34D31DFEA0EA0010B68D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34D21DFEA0EA0010B68D /* CoreGraphics.framework */; };
 		8BCF34D51DFEA0FC0010B68D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34D41DFEA0FC0010B68D /* QuartzCore.framework */; };
 		8BCF34D71DFEA11C0010B68D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34D61DFEA11C0010B68D /* StoreKit.framework */; };
 		8BCF34D91DFEA13A0010B68D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34D81DFEA13A0010B68D /* SystemConfiguration.framework */; };
-		8BCF34DC1DFEA4450010B68D /* BharatDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34DB1DFEA4450010B68D /* BharatDTO.m */; settings = {ASSET_TAGS = (); }; };
+		8BCF34DC1DFEA4450010B68D /* BharatDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34DB1DFEA4450010B68D /* BharatDTO.m */; };
 		8BCF34DE1DFEB0E40010B68D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34DD1DFEB0E40010B68D /* libz.tbd */; };
 		8BCF34E01DFEB0F20010B68D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34DF1DFEB0F20010B68D /* libsqlite3.tbd */; };
 		8BCF34E21DFEB11D0010B68D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34E11DFEB11D0010B68D /* Security.framework */; };
 		8BCF34E41DFEB1660010B68D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34E31DFEB1660010B68D /* MobileCoreServices.framework */; };
+		C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328021DFEBBC300E19F5C /* PostViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		8BCF34DF1DFEB0F20010B68D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8BCF34E11DFEB11D0010B68D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8BCF34E31DFEB1660010B68D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C5D328011DFEBBC300E19F5C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		C5D328021DFEBBC300E19F5C /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				8BCF34C81DFE9F900010B68D /* BharatQueryController.m */,
 				8BCF34DA1DFEA4450010B68D /* BharatDTO.h */,
 				8BCF34DB1DFEA4450010B68D /* BharatDTO.m */,
+				C5D328011DFEBBC300E19F5C /* PostViewController.h */,
+				C5D328021DFEBBC300E19F5C /* PostViewController.m */,
 			);
 			path = "Bharat+";
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			files = (
 				8BCF34B81DFE9B140010B68D /* ViewController.m in Sources */,
 				8BCF34B51DFE9B140010B68D /* AppDelegate.m in Sources */,
+				C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */,
 				8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */,
 				8BCF34B21DFE9B140010B68D /* main.m in Sources */,
 				8BCF34DC1DFEA4450010B68D /* BharatDTO.m in Sources */,

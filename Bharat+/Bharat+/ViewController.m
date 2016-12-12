@@ -9,6 +9,11 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property(nonatomic,weak)IBOutlet UITextField *mNameTF;
+@property(nonatomic,weak)IBOutlet UITextField *mAgeTF;
+@property(nonatomic,weak)IBOutlet UITextField *mGenderTF;
+@property(nonatomic,weak)IBOutlet UITextField *mProfessionTF;
+@property(nonatomic,weak)IBOutlet UILabel *mPointsLabel;
 
 @end
 
