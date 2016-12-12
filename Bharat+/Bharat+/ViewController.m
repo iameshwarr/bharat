@@ -51,6 +51,32 @@
 }
 -(void)saveButtonSelected
 {
-    
+    if(_mNameTF.text.length>0 && _mGenderTF.text.length>0 && _mAgeTF.text.length>0 && _mProfessionTF.text.length>0)
+    {
+        BharatQueryController *controller=[BharatQueryController new];
+        RegisterDTO *test=[RegisterDTO new];
+        test.personName=_mNameTF.text;
+        test.gender=_mGenderTF.text;
+        test.age=_mAgeTF.text;
+        test.profession=_mProfessionTF.text;
+        [controller registerToServer:test];
+    }
+    else
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Cannot leave that empty!"
+                                      message:@"Please enter all the fields."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 //Do some thing here
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                             }];
+        [alert addAction:ok]; // add action to uialertcontroller
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 @end
