@@ -45,9 +45,12 @@
     {
         PFObject *postRequest = [PFObject objectWithClassName:@"Posts"];
         [postRequest setObject:self.mRequestTypeTF.text forKey:@"Type"];
-        [postRequest setObject:self.mNameTF.text forKey:@"Name"];
+        [postRequest setObject:self.mNameTF.text forKey:@"Anonymous"];
         [postRequest setObject:self.mDataTV.text forKey:@"Post"];
         [postRequest setObject:@"0" forKey:@"Likes"];
+        [postRequest setObject:@"" forKey:@"LikedPeople"];
+        [postRequest setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]  forKey:@"PostedBy"];
+        
         [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             if (succeeded){
@@ -62,7 +65,21 @@
     }
     else
     {
-        [UIAlertController alertControllerWithTitle:@"Oops" message:@"Please Enter All fields" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Cannot leave that empty!"
+                                      message:@"Please enter all the fields."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 //Do some thing here
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                             }];
+        [alert addAction:ok]; // add action to uialertcontroller
+        [self presentViewController:alert animated:YES completion:nil];
+
     }
 }
 -(void)Back
