@@ -12,4 +12,5 @@
 @interface BharatQueryController : NSObject
 -(void)sendQueryToServer:(RequestDTO *)requestData;
 -(void)registerToServer:(RegisterDTO *)requestData;
+-(void)retrieveNewsFeedFromServer:(BOOL)me;
 @end

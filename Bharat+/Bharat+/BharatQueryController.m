@@ -53,9 +53,20 @@
     
 }
 
--(void)retrieveNewsFeedFromServer:(RegisterDTO *)requestData
+-(void)retrieveNewsFeedFromServer:(BOOL)me
 {
-        
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query whereKey:@"PostedBy" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 

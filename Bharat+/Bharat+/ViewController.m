@@ -43,7 +43,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"] isEqualToString:@""])
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]==nil)
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     else
     {
@@ -51,6 +51,8 @@
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     }
     [self.navigationItem setTitle:@"Profile"];
+    BharatQueryController *controller=[BharatQueryController new];
+    [controller retrieveNewsFeedFromServer:YES];
 }
 
 - (void)didReceiveMemoryWarning {
