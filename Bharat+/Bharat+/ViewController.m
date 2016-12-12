@@ -43,16 +43,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if([[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]==nil)
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"] isEqualToString:@""] || [[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]==nil)
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     else
     {
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonClicked)]];
-        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"View Posts" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     }
     [self.navigationItem setTitle:@"Profile"];
-    BharatQueryController *controller=[BharatQueryController new];
-    [controller retrieveNewsFeedFromServer:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +62,10 @@
     UIStoryboard *mMS=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PostViewController *mPVC=[mMS instantiateViewControllerWithIdentifier:@"PostViewController"];
     [self.navigationController pushViewController:mPVC animated:YES];
+}
+-(void)viewPostsSelected
+{
+    
 }
 -(void)saveButtonSelected
 {
@@ -79,6 +81,7 @@
             
             if (succeeded){
                 [[NSUserDefaults standardUserDefaults] setObject:_mNameTF.text forKey:@"Name"];
+                
                 [self.view setUserInteractionEnabled:NO];
                 [self postButtonClicked];
             }
