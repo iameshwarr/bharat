@@ -7,6 +7,7 @@
 //
 
 #import "PostViewController.h"
+#import <Parse/Parse.h>
 
 @interface PostViewController ()
 @property(nonatomic,weak)IBOutlet UITextField *mRequestTypeTF;
@@ -33,10 +34,36 @@
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(Back)]];
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     [self.navigationItem setTitle:@"Post"];
+    self.mDataTV.layer.borderColor=[[UIColor lightTextColor] CGColor];
+    self.mDataTV.layer.borderWidth=2.0;
+    
+    
 }
 -(void)saveButtonSelected
 {
-
+    if(![self.mDataTV isEqual:@""]&&![self.mRequestTypeTF isEqual:@""]&&![self.mNameTF isEqual:@""])
+    {
+        PFObject *postRequest = [PFObject objectWithClassName:@"Posts"];
+        [postRequest setObject:self.mRequestTypeTF.text forKey:@"Type"];
+        [postRequest setObject:self.mNameTF.text forKey:@"Name"];
+        [postRequest setObject:self.mDataTV.text forKey:@"Post"];
+        [postRequest setObject:@"0" forKey:@"Likes"];
+        [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            if (succeeded){
+                NSLog(@"Object Uploaded!");
+            }
+            else{
+                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                NSLog(@"Error: %@", errorString);
+            }
+            
+        }];
+    }
+    else
+    {
+        [UIAlertController alertControllerWithTitle:@"Oops" message:@"Please Enter All fields" preferredStyle:UIAlertControllerStyleAlert];
+    }
 }
 -(void)Back
 {

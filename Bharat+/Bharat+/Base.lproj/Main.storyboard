@@ -356,6 +356,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pu9-aP-CCy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="73s-RK-Iby">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How should your post be seen?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oU7-qY-ntq">
@@ -427,15 +428,15 @@
                                 <exclude reference="TgH-FV-FcG"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1Az-tA-p9f"/>
+                                <exclude reference="STd-a7-ghF"/>
+                                <exclude reference="ubo-WN-Sot"/>
                                 <exclude reference="LJl-cP-uuf"/>
                                 <exclude reference="WO3-nM-Anp"/>
                                 <exclude reference="qVS-bZ-d8a"/>
                                 <exclude reference="05q-2O-Mza"/>
                                 <exclude reference="98o-la-9cg"/>
                                 <exclude reference="LPy-mM-eyT"/>
-                                <exclude reference="1Az-tA-p9f"/>
-                                <exclude reference="STd-a7-ghF"/>
-                                <exclude reference="ubo-WN-Sot"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -445,15 +446,15 @@
                                 <include reference="TgH-FV-FcG"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1Az-tA-p9f"/>
+                                <include reference="STd-a7-ghF"/>
+                                <include reference="ubo-WN-Sot"/>
                                 <include reference="LJl-cP-uuf"/>
                                 <include reference="WO3-nM-Anp"/>
                                 <include reference="qVS-bZ-d8a"/>
                                 <include reference="05q-2O-Mza"/>
                                 <include reference="98o-la-9cg"/>
                                 <include reference="LPy-mM-eyT"/>
-                                <include reference="1Az-tA-p9f"/>
-                                <include reference="STd-a7-ghF"/>
-                                <include reference="ubo-WN-Sot"/>
                             </mask>
                         </variation>
                     </view>
