@@ -9,6 +9,10 @@
 #import "PostViewController.h"
 
 @interface PostViewController ()
+@property(nonatomic,weak)IBOutlet UITextField *mRequestTypeTF;
+@property(nonatomic,weak)IBOutlet UITextField *mNameTF;
+@property(nonatomic,weak)IBOutlet UITextView *mDataTV;
+
 
 @end
 
@@ -23,7 +27,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(Back)]];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
+    [self.navigationItem setTitle:@"Post"];
+}
+-(void)saveButtonSelected
+{
 
+}
+-(void)Back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 
