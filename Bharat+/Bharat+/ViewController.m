@@ -24,6 +24,7 @@
 @property(nonatomic,weak)IBOutlet UITextField *mAgeTF;
 @property(nonatomic,weak)IBOutlet UITextField *mGenderTF;
 @property(nonatomic,weak)IBOutlet UITextField *mProfessionTF;
+@property(nonatomic,weak)IBOutlet UITextField *mIdProofTF;
 @property(nonatomic,weak)IBOutlet UIButton *mPointsLabel;
 
 @end
@@ -78,16 +79,19 @@
     [_mGenderTF setBorderStyle:UITextBorderStyleNone];
     [_mAgeTF setBorderStyle:UITextBorderStyleNone];
     [_mProfessionTF setBorderStyle:UITextBorderStyleNone];
+    [_mIdProofTF setBorderStyle:UITextBorderStyleNone];
     [_mNameTF setUserInteractionEnabled:NO];
     [_mGenderTF setUserInteractionEnabled:NO];
     [_mAgeTF setUserInteractionEnabled:NO];
     [_mProfessionTF setUserInteractionEnabled:NO];
+    [_mIdProofTF setUserInteractionEnabled:NO];
+
 
 
 }
 -(void)saveButtonSelected
 {
-    if(_mNameTF.text.length>0 && _mGenderTF.text.length>0 && _mAgeTF.text.length>0 && _mProfessionTF.text.length>0)
+    if(_mNameTF.text.length>0 && _mGenderTF.text.length>0 && _mAgeTF.text.length>0 && _mProfessionTF.text.length>0 && _mIdProofTF.text.length>0)
     {
         [self.view endEditing:YES];
         PFObject *postRequest = [PFObject objectWithClassName:@"Register"];
@@ -95,6 +99,7 @@
         [postRequest setObject:_mGenderTF.text forKey:@"gender"];
         [postRequest setObject:_mAgeTF.text forKey:@"age"];
         [postRequest setObject:_mProfessionTF.text forKey:@"profession"];
+        [postRequest setObject:_mIdProofTF.text forKey:@"IdProof"];
         [postRequest setObject:[NSNumber numberWithInt:50] forKey:@"points"];
 
         [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -138,6 +143,7 @@
                 _mGenderTF.text=[object valueForKey:@"gender"];
                 _mAgeTF.text=[object valueForKey:@"age"];
                 _mProfessionTF.text=[object valueForKey:@"profession"];
+                _mIdProofTF.text=[object valueForKey:@"IdProof"];
                 [_mPointsLabel setTitle:[NSString stringWithFormat:@"You have %@ pts. Redeem Here!",[object valueForKey:@"points"]] forState:UIControlStateNormal];
                 [_mPointsLabel addTarget:self action:@selector(pointsButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
 
