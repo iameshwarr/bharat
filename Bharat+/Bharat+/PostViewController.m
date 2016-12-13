@@ -220,7 +220,7 @@
     }
     [self initializePicker];
     mPickerView.tag=textField.tag;
-    return YES;
+    return NO;
 }
 /*
 #pragma mark - Navigation

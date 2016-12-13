@@ -227,13 +227,10 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     [self removePickerView];
-    if(textField.tag==1)
-    {
-        mPickerViewData=[[NSArray alloc]initWithObjects:@"Name",@"Anonymous", nil];
-        [self initializePicker];
-        mPickerView.tag=textField.tag;
-    }
-    return YES;
+    mPickerViewData=[[NSArray alloc]initWithObjects:@"Male",@"Female", nil];
+    [self initializePicker];
+    mPickerView.tag=textField.tag;
+    return NO;
 }
 
 @end
