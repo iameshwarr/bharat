@@ -61,9 +61,14 @@
     PFObject *obj=[feedArray objectAtIndex:indexPath.row];
     NSString *type = [obj objectForKey:@"Type"];
     
+    NSDictionary *largeFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16],NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1] };
+    NSDictionary *smallFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:12] ,NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1]};
     BOOL contains=NO;
     NSString *totalLikedPpl= [obj objectForKey:@"LikedPeople"];
     NSString *yourName=[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+    NSString *totalLikes=[[NSUserDefaults standardUserDefaults] stringForKey:@"Likes"];
+    
+    
     if([totalLikedPpl containsString:yourName])
     {
         contains=YES;
@@ -73,25 +78,79 @@
     {
         cell.btnWidthConstraint.constant=90;
         [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
+        
+   
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people are attending",totalLikes] attributes:smallFont]];
+        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+
         if(contains)
         {
-            
+            cell.feedBtnLabel.hidden=YES;
+            NSInteger totalLikesInt=[totalLikes integerValue];
+            totalLikesInt-=1;
+            if(totalLikesInt==0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You are attending" attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
+            else if (totalLikesInt>0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people are attending",(int)totalLikesInt] attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
         }
     }
     else if ([type isEqualToString:@"Appreciation"])
     {
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people like this",totalLikes] attributes:smallFont]];
+        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
         if(contains)
         {
-            
+            cell.feedBtnLabel.hidden=YES;
+            NSInteger totalLikesInt=[totalLikes integerValue];
+            totalLikesInt-=1;
+            if(totalLikesInt==0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You like this" attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
+            else if (totalLikesInt>0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people like this",(int)totalLikesInt] attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
         }
     }
     else if ([type isEqualToString:@"Query/Suggestion"])
     {
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people have this query",totalLikes] attributes:smallFont]];
+        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
         [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
         if(contains)
         {
-            
+            cell.feedBtnLabel.hidden=YES;
+            NSInteger totalLikesInt=[totalLikes integerValue];
+            totalLikesInt-=1;
+            if(totalLikesInt==0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You like this" attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
+            else if (totalLikesInt>0)
+            {
+                attStringForrequestInfoBtn= [NSMutableAttributedString new];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people like this",(int)totalLikesInt] attributes:smallFont]];
+                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+            }
         }
     }
     
@@ -99,8 +158,7 @@
     cell.feedBtnLabel.tag=indexPath.row;
     
     NSString *title = [obj objectForKey:@"Anonymous"];
-    NSDictionary *largeFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16],NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1] };
-    NSDictionary *smallFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:12] ,NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1]};
+  
    
 
     
