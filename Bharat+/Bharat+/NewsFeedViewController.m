@@ -82,6 +82,16 @@
    
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
         [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people are attending",totalLikes] attributes:smallFont]];
+        NSString *likesString;
+        if([totalLikes integerValue]>1)
+        {
+            likesString=[NSString stringWithFormat:@"%@ people are attending",totalLikes];
+        }
+        else
+        {
+            likesString=[NSString stringWithFormat:@"%@ person is attending",totalLikes];
+        }
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:likesString attributes:smallFont]];
         cell.statusLabel.attributedText=attStringForrequestInfoBtn;
 
         if(contains)
@@ -105,10 +115,22 @@
     }
     else if ([type isEqualToString:@"Appreciation"])
     {
-        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people like this",totalLikes] attributes:smallFont]];
-        cell.statusLabel.attributedText=attStringForrequestInfoBtn;
+        
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
+        
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        NSString *likesString;
+        if([totalLikes integerValue]>1)
+        {
+            likesString=[NSString stringWithFormat:@"%@ people like this",totalLikes];
+        }
+        else
+        {
+            likesString=[NSString stringWithFormat:@"%@ person likes this",totalLikes];
+        }
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:likesString attributes:smallFont]];
+        cell.statusLabel.attributedText=attStringForrequestInfoBtn;
+        
         if(contains)
         {
             cell.feedBtnLabel.hidden=YES;
@@ -131,8 +153,18 @@
     else if ([type isEqualToString:@"Query/Suggestion"])
     {
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people have this query",totalLikes] attributes:smallFont]];
+        NSString *likesString;
+        if([totalLikes integerValue]>1)
+        {
+            likesString=[NSString stringWithFormat:@"%@ people have this query",totalLikes];
+        }
+        else
+        {
+            likesString=[NSString stringWithFormat:@"%@ person has this query",totalLikes];
+        }
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:likesString attributes:smallFont]];
         cell.statusLabel.attributedText=attStringForrequestInfoBtn;
+        
         [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
         if(contains)
         {
