@@ -7,11 +7,15 @@
 //
 
 #import "NewsFeedCell.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @implementation NewsFeedCell
 
 - (void)awakeFromNib {
     // Initialization code
+    self.messageLabel.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.messageLabel.layer.borderWidth = 3.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
