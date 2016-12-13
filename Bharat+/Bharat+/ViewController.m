@@ -12,13 +12,14 @@
 #import "PostViewController.h"
 #import "NewsFeedViewController.h"
 #import "ProductsViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ViewController ()
 {
     UIPickerView *mPickerView;
     UIToolbar *mToolbar;
     NSArray *mPickerViewData;
-    int selectedIndex;
+    NSInteger selectedIndex;
 }
 @property(nonatomic,weak)IBOutlet UITextField *mNameTF;
 @property(nonatomic,weak)IBOutlet UITextField *mAgeTF;
@@ -134,6 +135,8 @@
 }
 -(void)retrieveNewsFeedFromServer
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Register"];
     [query whereKey:@"personName" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -151,6 +154,9 @@
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
     }];
 }
 
@@ -167,6 +173,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     _mGenderTF.text=[mPickerViewData objectAtIndex:row];
+    selectedIndex=row;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -204,6 +211,7 @@
 }
 -(void)donePressedFromPicker
 {
+    _mGenderTF.text=[mPickerViewData objectAtIndex:selectedIndex];
     [self removePickerView];
 }
 -(IBAction)initializePicker
@@ -235,6 +243,8 @@
     [self removePickerView];
     mPickerViewData=[[NSArray alloc]initWithObjects:@"Male",@"Female", nil];
     [self initializePicker];
+    [mPickerView selectedRowInComponent:0];
+    selectedIndex=0;
     mPickerView.tag=textField.tag;
     return NO;
 }

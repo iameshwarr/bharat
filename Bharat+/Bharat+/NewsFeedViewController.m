@@ -244,7 +244,7 @@
                                  }];
     
     [obj setObject:likedPpl forKey:@"LikedPeople"];
-    [obj setObject:likes forKey:@"Likes"];
+    [obj setObject:[@(likesInt) stringValue] forKey:@"Likes"];
     [self.newsFeedTableView reloadData];
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B98D8E61E000162000ECA71 /* pastedImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B98D8E51E000162000ECA71 /* pastedImage@2x.png */; settings = {ASSET_TAGS = (); }; };
+		8B98D8E91E0007C2000ECA71 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B98D8E81E0007C2000ECA71 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
 		8BCF34B21DFE9B140010B68D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B11DFE9B140010B68D /* main.m */; };
 		8BCF34B51DFE9B140010B68D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B41DFE9B140010B68D /* AppDelegate.m */; };
 		8BCF34B81DFE9B140010B68D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B71DFE9B140010B68D /* ViewController.m */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		8B98D8E51E000162000ECA71 /* pastedImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pastedImage@2x.png"; sourceTree = "<group>"; };
+		8B98D8E71E0007C2000ECA71 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		8B98D8E81E0007C2000ECA71 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		8BCF34AD1DFE9B140010B68D /* Bharat+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bharat+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCF34B11DFE9B140010B68D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BCF34B31DFE9B140010B68D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 		8BCF34AF1DFE9B140010B68D /* Bharat+ */ = {
 			isa = PBXGroup;
 			children = (
+				8B98D8E71E0007C2000ECA71 /* MBProgressHUD.h */,
+				8B98D8E81E0007C2000ECA71 /* MBProgressHUD.m */,
 				C5D328041DFFC1F800E19F5C /* NewsFeedCell.h */,
 				C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */,
 				C5D328061DFFC1F800E19F5C /* NewsFeedViewController.h */,
@@ -250,6 +255,7 @@
 				C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */,
 				8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */,
 				8BCF34B21DFE9B140010B68D /* main.m in Sources */,
+				8B98D8E91E0007C2000ECA71 /* MBProgressHUD.m in Sources */,
 				C5D3280C1DFFCDA500E19F5C /* ProductsViewController.m in Sources */,
 				8BCF34DC1DFEA4450010B68D /* BharatDTO.m in Sources */,
 			);
