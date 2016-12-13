@@ -58,6 +58,15 @@
 {
     
     NewsFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseidentifier"];
+    
+    cell.usernameLabel.text=@"";
+    cell.messageLabel.text=@"";
+    cell.statusLabel.text=@"";
+    cell.btnWidthConstraint.constant=46;
+    cell.feedBtnLabel.hidden=NO;
+    
+    
+    
     PFObject *obj=[feedArray objectAtIndex:indexPath.row];
     NSString *type = [obj objectForKey:@"Type"];
     
