@@ -82,7 +82,7 @@
    
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
         [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people are attending",totalLikes] attributes:smallFont]];
-        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+        cell.statusLabel.attributedText=attStringForrequestInfoBtn;
 
         if(contains)
         {
@@ -93,13 +93,13 @@
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You are attending" attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
             else if (totalLikesInt>0)
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people are attending",(int)totalLikesInt] attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
         }
     }
@@ -107,7 +107,7 @@
     {
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
         [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people like this",totalLikes] attributes:smallFont]];
-        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+        cell.statusLabel.attributedText=attStringForrequestInfoBtn;
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
         if(contains)
         {
@@ -118,13 +118,13 @@
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You like this" attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
             else if (totalLikesInt>0)
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people like this",(int)totalLikesInt] attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
         }
     }
@@ -132,7 +132,7 @@
     {
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
         [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people have this query",totalLikes] attributes:smallFont]];
-        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+        cell.statusLabel.attributedText=attStringForrequestInfoBtn;
         [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
         if(contains)
         {
@@ -143,13 +143,13 @@
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You like this" attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
             else if (totalLikesInt>0)
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
                 [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people like this",(int)totalLikesInt] attributes:smallFont]];
-                cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
+                cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
         }
     }
