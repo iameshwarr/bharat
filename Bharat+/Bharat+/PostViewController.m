@@ -8,6 +8,7 @@
 
 #import "PostViewController.h"
 #import <Parse/Parse.h>
+#import "NewsFeedViewController.h"
 
 @interface PostViewController ()
 @property(nonatomic,weak)IBOutlet UITextField *mRequestTypeTF;
@@ -46,9 +47,10 @@
         NSString * postId;
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"]==nil)
         {
-            NSMutableString *num=[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+            NSMutableString *num=[[[NSUserDefaults standardUserDefaults] stringForKey:@"Name"]mutableCopy];
             [num appendString:@"0"];
             postId=[num mutableCopy];
+            [[NSUserDefaults standardUserDefaults] setObject:postId forKey:@"PostNumber"];
         }
         else
         {
@@ -75,6 +77,9 @@
             
             if (succeeded){
                 NSLog(@"Object Uploaded!");
+                UIStoryboard *mMS=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                NewsFeedViewController *mPVC=[mMS instantiateViewControllerWithIdentifier:@"NewsFeedViewController"];
+                [self.navigationController pushViewController:mPVC animated:YES];
             }
             else{
                 NSString *errorString = [[error userInfo] objectForKey:@"error"];
