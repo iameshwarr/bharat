@@ -66,7 +66,7 @@
     BOOL contains=NO;
     NSString *totalLikedPpl= [obj objectForKey:@"LikedPeople"];
     NSString *yourName=[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
-    NSString *totalLikes=[[NSUserDefaults standardUserDefaults] stringForKey:@"Likes"];
+    NSString *totalLikes=[obj objectForKey:@"Likes"];
     
     
     if([totalLikedPpl containsString:yourName])
