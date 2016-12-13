@@ -30,6 +30,7 @@
 		C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328021DFEBBC300E19F5C /* PostViewController.m */; };
 		C5D328081DFFC1F800E19F5C /* NewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */; };
 		C5D328091DFFC1F800E19F5C /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328071DFFC1F800E19F5C /* NewsFeedViewController.m */; };
+		C5D3280C1DFFCDA500E19F5C /* ProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D3280B1DFFCDA500E19F5C /* ProductsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedCell.m; sourceTree = "<group>"; };
 		C5D328061DFFC1F800E19F5C /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
 		C5D328071DFFC1F800E19F5C /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
+		C5D3280A1DFFCDA500E19F5C /* ProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsViewController.h; sourceTree = "<group>"; };
+		C5D3280B1DFFCDA500E19F5C /* ProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				8BCF34DB1DFEA4450010B68D /* BharatDTO.m */,
 				C5D328011DFEBBC300E19F5C /* PostViewController.h */,
 				C5D328021DFEBBC300E19F5C /* PostViewController.m */,
+				C5D3280A1DFFCDA500E19F5C /* ProductsViewController.h */,
+				C5D3280B1DFFCDA500E19F5C /* ProductsViewController.m */,
 			);
 			path = "Bharat+";
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */,
 				8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */,
 				8BCF34B21DFE9B140010B68D /* main.m in Sources */,
+				C5D3280C1DFFCDA500E19F5C /* ProductsViewController.m in Sources */,
 				8BCF34DC1DFEA4450010B68D /* BharatDTO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

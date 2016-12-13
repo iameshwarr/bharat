@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "PostViewController.h"
 #import "NewsFeedViewController.h"
+#import "ProductsViewController.h"
 
 @interface ViewController ()
 {
@@ -42,7 +43,6 @@
     {
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonClicked)]];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"View Posts" style:UIBarButtonItemStylePlain target:self action:@selector(viewPostsSelected)]];
-        [self.view setUserInteractionEnabled:NO];
         [self removeBorderForTextField];
         [self retrieveNewsFeedFromServer];
 
@@ -54,9 +54,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)pointsButtonSelected
+-(IBAction)pointsButtonSelected:(id)sender
 {
-    
+    UIStoryboard *mMS=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProductsViewController *mPVC=[mMS instantiateViewControllerWithIdentifier:@"ProductsViewController"];
+    [self.navigationController pushViewController:mPVC animated:YES];
 }
 -(void)postButtonClicked
 {
@@ -76,6 +78,11 @@
     [_mGenderTF setBorderStyle:UITextBorderStyleNone];
     [_mAgeTF setBorderStyle:UITextBorderStyleNone];
     [_mProfessionTF setBorderStyle:UITextBorderStyleNone];
+    [_mNameTF setUserInteractionEnabled:NO];
+    [_mGenderTF setUserInteractionEnabled:NO];
+    [_mAgeTF setUserInteractionEnabled:NO];
+    [_mProfessionTF setUserInteractionEnabled:NO];
+
 
 }
 -(void)saveButtonSelected
@@ -94,7 +101,6 @@
             
             if (succeeded){
                 [[NSUserDefaults standardUserDefaults] setObject:_mNameTF.text forKey:@"Name"];
-                [self.view setUserInteractionEnabled:NO];
                 [self removeBorderForTextField];
                 [self postButtonClicked];
             }
@@ -132,8 +138,8 @@
                 _mGenderTF.text=[object valueForKey:@"gender"];
                 _mAgeTF.text=[object valueForKey:@"age"];
                 _mProfessionTF.text=[object valueForKey:@"profession"];
-                [_mPointsLabel addTarget:self action:@selector(pointsButtonSelected) forControlEvents:UIControlEventTouchUpInside];
                 [_mPointsLabel setTitle:[NSString stringWithFormat:@"You have %@ pts. Redeem Here!",[object valueForKey:@"points"]] forState:UIControlStateNormal];
+                [_mPointsLabel addTarget:self action:@selector(pointsButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
 
             }
         } else {
