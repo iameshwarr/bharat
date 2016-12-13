@@ -40,7 +40,7 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-
+    [self.mYourButton setAlpha:1];
     // Do any additional setup after loading the view.
 }
 
@@ -73,16 +73,26 @@
     {
         cell.btnWidthConstraint.constant=90;
         [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
-//        if(contains)
-            //do something
+        if(contains)
+        {
+            
+        }
     }
     else if ([type isEqualToString:@"Appreciation"])
     {
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
+        if(contains)
+        {
+            
+        }
     }
     else if ([type isEqualToString:@"Query/Suggestion"])
     {
         [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
+        if(contains)
+        {
+            
+        }
     }
     
     [cell.feedBtnLabel addTarget:self action:@selector(eventClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -159,4 +169,47 @@
 }
 */
 
+- (IBAction)youAction:(id)sender {
+    feedArray=[NSMutableArray new];
+    [self.mYourButton setAlpha:1];
+    [self.mAllButton setAlpha:0.5];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query whereKey:@"PostedBy" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                [feedArray addObject:object];
+            }
+            [self.newsFeedTableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+
+}
+
+- (IBAction)allAction:(id)sender {
+    feedArray=[NSMutableArray new];
+    [self.mAllButton setAlpha:1];
+    [self.mYourButton setAlpha:0.5];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+                [feedArray addObject:object];
+            }
+            [self.newsFeedTableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+
+
+}
 @end

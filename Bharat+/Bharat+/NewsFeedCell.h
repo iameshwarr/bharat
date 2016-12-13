@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
 @property (strong, nonatomic) IBOutlet UIButton *feedBtnLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *btnWidthConstraint;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end

@@ -12,5 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *newsFeedTableView;
 @property (strong, nonatomic) IBOutlet UIButton *mYourButton;
 @property (strong, nonatomic) IBOutlet UIButton *mAllButton;
+- (IBAction)youAction:(id)sender;
+- (IBAction)allAction:(id)sender;
 
 @end
