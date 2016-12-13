@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,41 +16,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bharat+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-L1-pU6">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pastedImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="hPG-zk-FDg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AFe-L1-pU6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="huV-dJ-h9Q"/>
-                            <constraint firstItem="AFe-L1-pU6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kyk-r5-TqU"/>
+                            <constraint firstItem="hPG-zk-FDg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="DJG-NK-3YG"/>
+                            <constraint firstItem="hPG-zk-FDg" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HWj-gN-onY"/>
+                            <constraint firstAttribute="trailing" secondItem="hPG-zk-FDg" secondAttribute="trailing" id="XB2-jf-BaZ"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hPG-zk-FDg" secondAttribute="bottom" constant="336" id="c0R-yl-IKg">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="AFe-L1-pU6"/>
+                                <exclude reference="hPG-zk-FDg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="huV-dJ-h9Q"/>
-                                <exclude reference="kyk-r5-TqU"/>
+                                <exclude reference="DJG-NK-3YG"/>
+                                <exclude reference="HWj-gN-onY"/>
+                                <exclude reference="XB2-jf-BaZ"/>
+                                <exclude reference="c0R-yl-IKg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="AFe-L1-pU6"/>
+                                <include reference="hPG-zk-FDg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="huV-dJ-h9Q"/>
-                                <include reference="kyk-r5-TqU"/>
+                                <include reference="DJG-NK-3YG"/>
+                                <include reference="HWj-gN-onY"/>
+                                <include reference="XB2-jf-BaZ"/>
+                                <include reference="c0R-yl-IKg"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pastedImage.png" width="640" height="1136"/>
+    </resources>
 </document>

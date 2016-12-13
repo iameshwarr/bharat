@@ -86,7 +86,7 @@
         {
             likesString=[NSString stringWithFormat:@"%@ people are attending",totalLikes];
         }
-        else
+        else if([totalLikes integerValue]==1)
         {
             likesString=[NSString stringWithFormat:@"%@ person is attending",totalLikes];
         }
@@ -123,7 +123,7 @@
         {
             likesString=[NSString stringWithFormat:@"%@ people like this",totalLikes];
         }
-        else
+        else if([totalLikes integerValue]==1)
         {
             likesString=[NSString stringWithFormat:@"%@ person likes this",totalLikes];
         }
@@ -157,7 +157,7 @@
         {
             likesString=[NSString stringWithFormat:@"%@ people have this query",totalLikes];
         }
-        else
+        else if([totalLikes integerValue]==1)
         {
             likesString=[NSString stringWithFormat:@"%@ person has this query",totalLikes];
         }
@@ -173,13 +173,13 @@
             if(totalLikesInt==0)
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
-                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You like this" attributes:smallFont]];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"You have this query" attributes:smallFont]];
                 cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
             else if (totalLikesInt>0)
             {
                 attStringForrequestInfoBtn= [NSMutableAttributedString new];
-                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people like this",(int)totalLikesInt] attributes:smallFont]];
+                [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"You and %d people have this query",(int)totalLikesInt] attributes:smallFont]];
                 cell.statusLabel.attributedText=attStringForrequestInfoBtn;
             }
         }
