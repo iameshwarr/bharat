@@ -9,6 +9,7 @@
 #import "NewsFeedViewController.h"
 #import <Parse/Parse.h>
 #import "NewsFeedCell.h"
+#import "MBProgressHUD.h"
 
 @interface NewsFeedViewController ()
 
@@ -28,6 +29,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query whereKey:@"PostedBy" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -39,6 +41,9 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }];
     [self.mYourButton setAlpha:1];
     // Do any additional setup after loading the view.
@@ -273,6 +278,7 @@
     [self.mAllButton setAlpha:0.5];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query whereKey:@"PostedBy" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
+     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -284,6 +290,9 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }];
 
 
@@ -294,6 +303,7 @@
     [self.mAllButton setAlpha:1];
     [self.mYourButton setAlpha:0.5];
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -305,6 +315,9 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }];
 
 

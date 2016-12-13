@@ -9,6 +9,7 @@
 #import "PostViewController.h"
 #import <Parse/Parse.h>
 #import "NewsFeedViewController.h"
+#import "MBProgressHUD.h"
 
 @interface PostViewController ()
 {
@@ -60,7 +61,7 @@
         [postRequest setObject:@"0" forKey:@"Likes"];
         [postRequest setObject:@"" forKey:@"LikedPeople"];
         [postRequest setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]  forKey:@"PostedBy"];
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             if (succeeded){
@@ -76,7 +77,9 @@
                 NSString *errorString = [[error userInfo] objectForKey:@"error"];
                 NSLog(@"Error: %@", errorString);
             }
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
         }];
     }
     else

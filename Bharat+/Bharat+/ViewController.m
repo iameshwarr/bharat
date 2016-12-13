@@ -92,6 +92,7 @@
 }
 -(void)saveButtonSelected
 {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(_mNameTF.text.length>0 && _mGenderTF.text.length>0 && _mAgeTF.text.length>0 && _mProfessionTF.text.length>0 && _mIdProofTF.text.length>0)
     {
         [self.view endEditing:YES];
@@ -114,8 +115,12 @@
                 NSString *errorString = [[error userInfo] objectForKey:@"error"];
                 NSLog(@"Error: %@", errorString);
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
             
-        }];    }
+        }];
+    }
     else
     {
         UIAlertController * alert=   [UIAlertController
