@@ -48,7 +48,7 @@
 {
     [self.view endEditing:YES];
     [self removePickerView];
-    if(![self.mDataTV isEqual:@""]&&![self.mRequestTypeTF isEqual:@""]&&![self.mNameTF isEqual:@""])
+    if(![self.mDataTV.text isEqualToString:@""]&&![self.mRequestTypeTF.text isEqualToString:@""]&&![self.mNameTF.text isEqualToString:@""])
     {
         NSString * postId;
         if([[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"]==nil)
@@ -133,7 +133,12 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if(mPickerView.tag==0)
-        _mNameTF.text=[mPickerViewData objectAtIndex:row];
+    {
+        if([[mPickerViewData objectAtIndex:row] isEqualToString:@"Name"])
+            _mNameTF.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+        else
+            _mNameTF.text=[mPickerViewData objectAtIndex:row];
+    }
     else
         _mRequestTypeTF.text=[mPickerViewData objectAtIndex:row];
 }
