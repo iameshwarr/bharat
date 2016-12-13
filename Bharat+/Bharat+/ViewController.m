@@ -10,6 +10,7 @@
 #import "BharatQueryController.h"
 #import <Parse/Parse.h>
 #import "PostViewController.h"
+#import "NewsFeedViewController.h"
 
 @interface ViewController ()
 {
@@ -22,7 +23,7 @@
 @property(nonatomic,weak)IBOutlet UITextField *mAgeTF;
 @property(nonatomic,weak)IBOutlet UITextField *mGenderTF;
 @property(nonatomic,weak)IBOutlet UITextField *mProfessionTF;
-@property(nonatomic,weak)IBOutlet UILabel *mPointsLabel;
+@property(nonatomic,weak)IBOutlet UIButton *mPointsLabel;
 
 @end
 
@@ -30,22 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(testCode) userInfo:nil repeats:NO];
-    // Do any additional setup after loading the view, typically from a nib.
 }
-
-//-(void)testCode
-//{
-//    BharatQueryController *controller=[BharatQueryController new];
-//
-//    RequestDTO *test=[RequestDTO new];
-//    test.name=@"Eshwar";
-//    test.requestType=@"Appreciation";
-//    test.message=@"Toilet cleaned properly, congo!";
-//    test.imageData=[NSData new];
-//    [controller sendQueryToServer:test];
-//}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -55,8 +41,9 @@
     else
     {
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonClicked)]];
-        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"View Posts" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"View Posts" style:UIBarButtonItemStylePlain target:self action:@selector(viewPostsSelected)]];
         [self.view setUserInteractionEnabled:NO];
+        [self removeBorderForTextField];
         [self retrieveNewsFeedFromServer];
 
     }
@@ -67,6 +54,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)pointsButtonSelected
+{
+    
+}
 -(void)postButtonClicked
 {
     UIStoryboard *mMS=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -75,7 +66,17 @@
 }
 -(void)viewPostsSelected
 {
-    
+    UIStoryboard *mMS=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewsFeedViewController *mPVC=[mMS instantiateViewControllerWithIdentifier:@"NewsFeedViewController"];
+    [self.navigationController pushViewController:mPVC animated:YES];
+}
+-(void)removeBorderForTextField
+{
+    [_mNameTF setBorderStyle:UITextBorderStyleNone];
+    [_mGenderTF setBorderStyle:UITextBorderStyleNone];
+    [_mAgeTF setBorderStyle:UITextBorderStyleNone];
+    [_mProfessionTF setBorderStyle:UITextBorderStyleNone];
+
 }
 -(void)saveButtonSelected
 {
@@ -87,12 +88,14 @@
         [postRequest setObject:_mGenderTF.text forKey:@"gender"];
         [postRequest setObject:_mAgeTF.text forKey:@"age"];
         [postRequest setObject:_mProfessionTF.text forKey:@"profession"];
+        [postRequest setObject:[NSNumber numberWithInt:50] forKey:@"points"];
+
         [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             if (succeeded){
                 [[NSUserDefaults standardUserDefaults] setObject:_mNameTF.text forKey:@"Name"];
-                
                 [self.view setUserInteractionEnabled:NO];
+                [self removeBorderForTextField];
                 [self postButtonClicked];
             }
             else{
@@ -112,10 +115,9 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 //Do some thing here
                                  [alert dismissViewControllerAnimated:YES completion:nil];
                              }];
-        [alert addAction:ok]; // add action to uialertcontroller
+        [alert addAction:ok]; 
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
@@ -130,12 +132,11 @@
                 _mGenderTF.text=[object valueForKey:@"gender"];
                 _mAgeTF.text=[object valueForKey:@"age"];
                 _mProfessionTF.text=[object valueForKey:@"profession"];
-//                [object fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//                    
-//                }];
+                [_mPointsLabel addTarget:self action:@selector(pointsButtonSelected) forControlEvents:UIControlEventTouchUpInside];
+                [_mPointsLabel setTitle:[NSString stringWithFormat:@"You have %@ pts. Redeem Here!",[object valueForKey:@"points"]] forState:UIControlStateNormal];
+
             }
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
