@@ -60,10 +60,21 @@
     NewsFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseidentifier"];
     PFObject *obj=[feedArray objectAtIndex:indexPath.row];
     NSString *type = [obj objectForKey:@"Type"];
+    
+    BOOL contains=NO;
+    NSString *totalLikedPpl= [obj objectForKey:@"LikedPeople"];
+    NSString *yourName=[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+    if([totalLikedPpl containsString:yourName])
+    {
+        contains=YES;
+    }
+    
     if([type isEqualToString:@"Request"])
     {
         cell.btnWidthConstraint.constant=90;
         [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
+//        if(contains)
+            //do something
     }
     else if ([type isEqualToString:@"Appreciation"])
     {
