@@ -15,7 +15,14 @@
 - (void)awakeFromNib {
     // Initialization code
     self.messageLabel.layer.borderColor = [UIColor orangeColor].CGColor;
-    self.messageLabel.layer.borderWidth = 3.0;
+    self.messageLabel.layer.borderWidth = 1.0;
+    self.messageLabel.layer.cornerRadius=4;
+    
+    self.feedBtnLabel.layer.borderColor = [UIColor colorWithRed:94.0f/255 green:128.0f/255 blue:206.0f/255 alpha:1].CGColor;
+    self.feedBtnLabel.layer.borderWidth = 1.0;
+    self.feedBtnLabel.layer.cornerRadius=4;
+
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

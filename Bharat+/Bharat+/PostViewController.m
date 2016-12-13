@@ -72,7 +72,12 @@
         }
         PFObject *postRequest = [PFObject objectWithClassName:@"Posts"];
         [postRequest setObject:self.mRequestTypeTF.text forKey:@"Type"];
-        [postRequest setObject:self.mNameTF.text forKey:@"Anonymous"];
+        
+        if([self.mNameTF.text isEqualToString:@"Anonymous"])
+            [postRequest setObject:@"Y" forKey:@"Anonymous"];
+        else
+            [postRequest setObject:@"N" forKey:@"Anonymous"];
+        
         [postRequest setObject:self.mDataTV.text forKey:@"Post"];
         [postRequest setObject:@"0" forKey:@"Likes"];
         [postRequest setObject:@"" forKey:@"LikedPeople"];

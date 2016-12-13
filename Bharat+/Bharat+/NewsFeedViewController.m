@@ -62,15 +62,18 @@
     NSString *type = [obj objectForKey:@"Type"];
     if([type isEqualToString:@"Request"])
     {
-        [cell.feedBtnLabel setTitle:@"Yes" forState:UIControlStateNormal];
+        [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
     }
     else if ([type isEqualToString:@"Appreciation"])
     {
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
     }
+    else if ([type isEqualToString:@"Query/Suggestion"])
+    {
+        [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
+    }
+    
     NSString *title = [obj objectForKey:@"Anonymous"];
-    
-    
     NSDictionary *largeFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16],NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1] };
     NSDictionary *smallFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:12] ,NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1]};
    
