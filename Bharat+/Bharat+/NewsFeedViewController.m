@@ -60,7 +60,6 @@
     NewsFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseidentifier"];
     PFObject *obj=[feedArray objectAtIndex:indexPath.row];
     NSString *type = [obj objectForKey:@"Type"];
-    cell.typeLabel.text= type;
     if([type isEqualToString:@"Request"])
     {
         [cell.feedBtnLabel setTitle:@"Yes" forState:UIControlStateNormal];
@@ -70,13 +69,26 @@
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
     }
     NSString *title = [obj objectForKey:@"Anonymous"];
+    
+    
+    NSDictionary *largeFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16],NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1] };
+    NSDictionary *smallFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:12] ,NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1]};
+   
+
+    
     if([title isEqualToString:@"Y"])
     {
-        cell.usernameLabel.text= @"Anonymous";
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:@"Anonymous"    attributes:largeFont]];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)",type]   attributes:smallFont]];
+        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
     }
     else
     {
-        cell.usernameLabel.text= [obj objectForKey:@"PostedBy"];
+        NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[obj objectForKey:@"PostedBy"]    attributes:largeFont]];
+        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)",type]   attributes:smallFont]];
+        cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
     }
     cell.messageLabel.text= [obj objectForKey:@"Post"];
     return cell;
