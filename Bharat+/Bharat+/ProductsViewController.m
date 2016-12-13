@@ -7,6 +7,7 @@
 //
 
 #import "ProductsViewController.h"
+#import "NewsFeedCell.h"
 
 @interface ProductsViewController ()
 
@@ -33,14 +34,17 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *mCell=[tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    NewsFeedCell *mCell=[tableView dequeueReusableCellWithIdentifier:@"NewsFeedCell" forIndexPath:indexPath];
     if(mCell==nil)
     {
-        mCell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellIdentifier"];
+        mCell=[[NewsFeedCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NewsFeedCell"];
     }
-    mCell.imageView.image=nil;
-    mCell.textLabel.text=[NSString stringWithFormat:@"%@",[ProductsArray objectAtIndex:indexPath.row]];
+    mCell.usernameLabel.text=[NSString stringWithFormat:@"%@!!",[ProductsArray objectAtIndex:indexPath.row]];
     return mCell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
 }
 /*
 #pragma mark - Navigation
