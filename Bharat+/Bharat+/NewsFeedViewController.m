@@ -81,7 +81,7 @@
         
    
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        NSString *likesString;
+        NSString *likesString=[NSString new];
         if([totalLikes integerValue]>1)
         {
             likesString=[NSString stringWithFormat:@"%@ people are attending",totalLikes];
@@ -118,7 +118,7 @@
         [cell.feedBtnLabel setTitle:@"Like" forState:UIControlStateNormal];
         
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        NSString *likesString;
+        NSString *likesString=[NSString new];
         if([totalLikes integerValue]>1)
         {
             likesString=[NSString stringWithFormat:@"%@ people like this",totalLikes];
@@ -152,7 +152,7 @@
     else if ([type isEqualToString:@"Query/Suggestion"])
     {
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        NSString *likesString;
+        NSString *likesString=[NSString new];
         if([totalLikes integerValue]>1)
         {
             likesString=[NSString stringWithFormat:@"%@ people have this query",totalLikes];
@@ -207,7 +207,7 @@
         [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)",type]   attributes:smallFont]];
         cell.usernameLabel.attributedText=attStringForrequestInfoBtn;
     }
-    cell.messageLabel.text= [obj objectForKey:@"Post"];
+    cell.messageLabel.text=[NSString stringWithFormat:@"  %@",[obj objectForKey:@"Post"]] ;
     return cell;
 
 //    NSString *title = [obj objectForKey:@"Likes"];

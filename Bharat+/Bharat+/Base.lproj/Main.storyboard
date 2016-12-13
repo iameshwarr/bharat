@@ -831,18 +831,12 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="15" y="10" width="42" height="21"/>
-                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-Sw-PbM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-Sw-PbM">
                                                     <rect key="frame" x="10" y="35" width="580" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="10" y="39" width="380" height="20"/>
-                                                    </variation>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-jo-qJk">
                                                     <rect key="frame" x="10" y="61" width="46" height="30"/>
@@ -850,11 +844,8 @@
                                                         <constraint firstAttribute="height" constant="30" id="cEx-A8-rR1"/>
                                                         <constraint firstAttribute="width" constant="46" id="qyv-UN-527"/>
                                                     </constraints>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="10" y="67" width="46" height="30"/>
-                                                    </variation>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-MW-AvO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-MW-AvO">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -865,13 +856,22 @@
                                                 <constraint firstItem="7OZ-Sw-PbM" firstAttribute="leading" secondItem="26B-ie-a6i" secondAttribute="leading" constant="10" id="1d3-rK-G0n">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                                 </constraint>
+                                                <constraint firstItem="Sb8-MW-AvO" firstAttribute="leading" secondItem="w6g-jo-qJk" secondAttribute="trailing" constant="79" id="1xD-PN-CdR">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                                </constraint>
                                                 <constraint firstItem="JeG-II-mFw" firstAttribute="top" secondItem="26B-ie-a6i" secondAttribute="top" constant="10" id="2Ly-oY-DIK"/>
                                                 <constraint firstItem="JeG-II-mFw" firstAttribute="leading" secondItem="26B-ie-a6i" secondAttribute="leading" constant="10" id="3ZD-xh-e5N">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                                 </constraint>
                                                 <constraint firstAttribute="trailing" secondItem="7OZ-Sw-PbM" secondAttribute="trailing" constant="10" id="4VB-Dp-Uxs"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sb8-MW-AvO" secondAttribute="trailing" constant="15" id="CrJ-IC-2r3"/>
                                                 <constraint firstItem="w6g-jo-qJk" firstAttribute="leading" secondItem="26B-ie-a6i" secondAttribute="leading" constant="10" id="I6d-zC-pS9"/>
+                                                <constraint firstItem="Sb8-MW-AvO" firstAttribute="centerY" secondItem="w6g-jo-qJk" secondAttribute="centerY" id="ONs-jq-BBZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="w6g-jo-qJk" secondAttribute="bottom" constant="15" id="Qth-Xm-Cvi">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                                </constraint>
                                                 <constraint firstItem="7OZ-Sw-PbM" firstAttribute="top" secondItem="JeG-II-mFw" secondAttribute="bottom" constant="8" id="UMh-Bv-GTk"/>
+                                                <constraint firstItem="Sb8-MW-AvO" firstAttribute="centerY" secondItem="w6g-jo-qJk" secondAttribute="centerY" id="cjy-kk-cPO"/>
                                                 <constraint firstAttribute="bottom" secondItem="Sb8-MW-AvO" secondAttribute="bottom" constant="8" id="hZr-so-OAI">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                                                 </constraint>
@@ -888,6 +888,11 @@
                                                     <exclude reference="Sb8-MW-AvO"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="Qth-Xm-Cvi"/>
+                                                    <exclude reference="1xD-PN-CdR"/>
+                                                    <exclude reference="CrJ-IC-2r3"/>
+                                                    <exclude reference="ONs-jq-BBZ"/>
+                                                    <exclude reference="cjy-kk-cPO"/>
                                                     <exclude reference="hZr-so-OAI"/>
                                                     <exclude reference="iRX-Cl-x0r"/>
                                                     <exclude reference="wZC-16-haT"/>
@@ -898,9 +903,14 @@
                                                     <include reference="Sb8-MW-AvO"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="hZr-so-OAI"/>
-                                                    <include reference="iRX-Cl-x0r"/>
-                                                    <include reference="wZC-16-haT"/>
+                                                    <include reference="Qth-Xm-Cvi"/>
+                                                    <include reference="1xD-PN-CdR"/>
+                                                    <include reference="CrJ-IC-2r3"/>
+                                                    <include reference="ONs-jq-BBZ"/>
+                                                    <exclude reference="cjy-kk-cPO"/>
+                                                    <exclude reference="hZr-so-OAI"/>
+                                                    <exclude reference="iRX-Cl-x0r"/>
+                                                    <exclude reference="wZC-16-haT"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
