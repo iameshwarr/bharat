@@ -81,7 +81,6 @@
         
    
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
-        [attStringForrequestInfoBtn appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ people are attending",totalLikes] attributes:smallFont]];
         NSString *likesString;
         if([totalLikes integerValue]>1)
         {
