@@ -10,5 +10,7 @@
 
 @interface NewsFeedViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *newsFeedTableView;
+@property (strong, nonatomic) IBOutlet UIButton *mYourButton;
+@property (strong, nonatomic) IBOutlet UIButton *mAllButton;
 
 @end

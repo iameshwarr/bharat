@@ -41,8 +41,6 @@
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(Back)]];
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
     [self.navigationItem setTitle:@"Post"];
-    self.mDataTV.layer.borderColor=[[UIColor grayColor] CGColor];
-    self.mDataTV.layer.borderWidth=2.0;
 }
 -(void)saveButtonSelected
 {
