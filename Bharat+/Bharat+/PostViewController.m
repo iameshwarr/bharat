@@ -50,26 +50,26 @@
     [self removePickerView];
     if(![self.mDataTV.text isEqualToString:@""]&&![self.mRequestTypeTF.text isEqualToString:@""]&&![self.mNameTF.text isEqualToString:@""])
     {
-        NSString * postId;
-        if([[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"]==nil)
-        {
-            NSMutableString *num=[[[NSUserDefaults standardUserDefaults] stringForKey:@"Name"]mutableCopy];
-            [num appendString:@"0"];
-            postId=[num mutableCopy];
-            [[NSUserDefaults standardUserDefaults] setObject:postId forKey:@"PostNumber"];
-        }
-        else
-        {
-            NSString *ggg=[[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"];
-            NSString *numbers = [ggg stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]];
-            NSMutableString *alphabets = [[ggg stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]]mutableCopy];
-
-            NSInteger num=[numbers integerValue];
-            num+=1;
-            NSString *inStr = [@(num) stringValue];
-            [alphabets appendString:inStr];
-            postId=[alphabets mutableCopy];
-        }
+//        NSString * postId;
+//        if([[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"]==nil)
+//        {
+//            NSMutableString *num=[[[NSUserDefaults standardUserDefaults] stringForKey:@"Name"]mutableCopy];
+//            [num appendString:@"0"];
+//            postId=[num mutableCopy];
+//            [[NSUserDefaults standardUserDefaults] setObject:postId forKey:@"PostNumber"];
+//        }
+//        else
+//        {
+//            NSString *ggg=[[NSUserDefaults standardUserDefaults] objectForKey:@"PostNumber"];
+//            NSString *numbers = [ggg stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]];
+//            NSMutableString *alphabets = [[ggg stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]]mutableCopy];
+//
+//            NSInteger num=[numbers integerValue];
+//            num+=1;
+//            NSString *inStr = [@(num) stringValue];
+//            [alphabets appendString:inStr];
+//            postId=[alphabets mutableCopy];
+//        }
         PFObject *postRequest = [PFObject objectWithClassName:@"Posts"];
         [postRequest setObject:self.mRequestTypeTF.text forKey:@"Type"];
         
@@ -81,7 +81,7 @@
         [postRequest setObject:self.mDataTV.text forKey:@"Post"];
         [postRequest setObject:@"0" forKey:@"Likes"];
         [postRequest setObject:@"" forKey:@"LikedPeople"];
-        [postRequest setObject:postId  forKey:@"PostId"];
+//        [postRequest setObject:postId  forKey:@"PostId"];
         [postRequest setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]  forKey:@"PostedBy"];
         
         [postRequest saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

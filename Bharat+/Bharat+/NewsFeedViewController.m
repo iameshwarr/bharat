@@ -62,6 +62,7 @@
     NSString *type = [obj objectForKey:@"Type"];
     if([type isEqualToString:@"Request"])
     {
+        cell.btnWidthConstraint.constant=90;
         [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
     }
     else if ([type isEqualToString:@"Appreciation"])
@@ -72,6 +73,9 @@
     {
         [cell.feedBtnLabel setTitle:@"+1" forState:UIControlStateNormal];
     }
+    
+    [cell.feedBtnLabel addTarget:self action:@selector(eventClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.feedBtnLabel.tag=indexPath.row;
     
     NSString *title = [obj objectForKey:@"Anonymous"];
     NSDictionary *largeFont=@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16],NSForegroundColorAttributeName:[UIColor colorWithRed:162.0f/255 green:162.0f/255 blue:162.0f/255 alpha:1] };
@@ -105,6 +109,33 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)eventClicked:(UIButton *)sender
+{
+    PFObject *obj=[feedArray objectAtIndex:sender.tag];
+    NSString *likes = [obj objectForKey:@"Likes"];
+    NSInteger likesInt=[likes integerValue];
+    likesInt+=1;
+    
+    NSMutableString *likedPpl = [[obj objectForKey:@"LikedPeople"]mutableCopy];
+    [likedPpl appendString:[[NSUserDefaults standardUserDefaults] stringForKey:@"Name"]];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:obj.objectId
+                                 block:^(PFObject *post, NSError *error) {
+                                     // Now let's update it with some new data. In this case, only cheatMode and score
+                                     // will get sent to the cloud. playerName hasn't changed.
+                                     post[@"Likes"] = [@(likesInt) stringValue];
+                                     post[@"LikedPeople"] = likedPpl;
+                                     [post saveInBackground];
+                                 }];
+    
+    [obj setObject:likedPpl forKey:@"LikedPeople"];
+    [obj setObject:likes forKey:@"Likes"];
+    [self.newsFeedTableView reloadData];
 }
 
 /*
