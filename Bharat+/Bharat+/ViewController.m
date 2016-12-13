@@ -12,6 +12,12 @@
 #import "PostViewController.h"
 
 @interface ViewController ()
+{
+    UIPickerView *mPickerView;
+    UIToolbar *mToolbar;
+    NSArray *mPickerViewData;
+    int selectedIndex;
+}
 @property(nonatomic,weak)IBOutlet UITextField *mNameTF;
 @property(nonatomic,weak)IBOutlet UITextField *mAgeTF;
 @property(nonatomic,weak)IBOutlet UITextField *mGenderTF;
@@ -24,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 //    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(testCode) userInfo:nil repeats:NO];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -49,6 +56,9 @@
     {
         [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStylePlain target:self action:@selector(postButtonClicked)]];
         [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"View Posts" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonSelected)]];
+        [self.view setUserInteractionEnabled:NO];
+        [self retrieveNewsFeedFromServer];
+
     }
     [self.navigationItem setTitle:@"Profile"];
 }
@@ -109,4 +119,114 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+-(void)retrieveNewsFeedFromServer
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Register"];
+    [query whereKey:@"personName" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"Name"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                _mNameTF.text=[object valueForKey:@"personName"];
+                _mGenderTF.text=[object valueForKey:@"gender"];
+                _mAgeTF.text=[object valueForKey:@"age"];
+                _mProfessionTF.text=[object valueForKey:@"profession"];
+//                [object fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//                    
+//                }];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+#pragma mark picker view delegates
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [mPickerViewData count];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    _mGenderTF.text=[mPickerViewData objectAtIndex:row];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [mPickerViewData objectAtIndex:row];
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    
+    CGFloat componentWidth = 0.0;
+    componentWidth = self.view.bounds.size.width;
+    return componentWidth;
+}
+-(void)initializeToolbar
+{
+    CGRect theToolRect = CGRectZero;
+    theToolRect = CGRectMake(0, (self.view.frame.size.height-150 - 44), self.view.frame.size.width, 44);
+    mToolbar = [[UIToolbar alloc] initWithFrame: theToolRect];
+    mToolbar.barStyle = UIBarStyleBlackOpaque;
+    mToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    mToolbar.barTintColor = [UIColor colorWithRed:108/255.0f green:108/255.0f blue:108/255.0f alpha:1.0f];
+    UIButton *theDoneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [theDoneButton setFrame:CGRectMake(0, 0, 50, 20)];
+    [theDoneButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
+    [theDoneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [theDoneButton setTitleColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    [theDoneButton addTarget:self action:@selector(donePressedFromPicker) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithCustomView: theDoneButton];
+    
+    UIBarButtonItem* flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    mToolbar.items = [NSArray arrayWithObjects:flexibleSpace, doneButton, nil];
+    [self.view addSubview: mToolbar];
+    
+}
+-(void)donePressedFromPicker
+{
+    [self removePickerView];
+}
+-(IBAction)initializePicker
+{
+    [self.view endEditing:YES];
+    mPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 150, self.view.bounds.size.width, 150)];
+    [mPickerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
+    [mPickerView setBackgroundColor:[UIColor lightGrayColor]];
+    mPickerView.delegate = self;
+    mPickerView.showsSelectionIndicator = YES;
+    [self initializeToolbar];
+    [self.view addSubview:mPickerView];
+}
+-(void)removePickerView
+{
+    if(mPickerView!=nil)
+    {
+        [mPickerView removeFromSuperview];
+        mPickerView=nil;
+    }
+    if(mToolbar!=nil)
+    {
+        [mToolbar removeFromSuperview];
+        mToolbar=nil;
+    }
+}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self removePickerView];
+    if(textField.tag==1)
+    {
+        mPickerViewData=[[NSArray alloc]initWithObjects:@"Name",@"Anonymous", nil];
+        [self initializePicker];
+        mPickerView.tag=textField.tag;
+    }
+    return YES;
+}
+
 @end
