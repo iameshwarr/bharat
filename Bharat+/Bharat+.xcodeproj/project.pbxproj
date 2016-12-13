@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B98D8E61E000162000ECA71 /* pastedImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B98D8E51E000162000ECA71 /* pastedImage@2x.png */; settings = {ASSET_TAGS = (); }; };
-		8B98D8E91E0007C2000ECA71 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B98D8E81E0007C2000ECA71 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
+		8B98D8E61E000162000ECA71 /* pastedImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B98D8E51E000162000ECA71 /* pastedImage@2x.png */; };
+		8B98D8E91E0007C2000ECA71 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B98D8E81E0007C2000ECA71 /* MBProgressHUD.m */; };
 		8BCF34B21DFE9B140010B68D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B11DFE9B140010B68D /* main.m */; };
 		8BCF34B51DFE9B140010B68D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B41DFE9B140010B68D /* AppDelegate.m */; };
 		8BCF34B81DFE9B140010B68D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF34B71DFE9B140010B68D /* ViewController.m */; };
@@ -36,6 +36,8 @@
 		C5D328101DFFEE8100E19F5C /* popover_header_bg_TPL.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D3280D1DFFEE8100E19F5C /* popover_header_bg_TPL.png */; };
 		C5D328111DFFEE8100E19F5C /* popover_header_bg_TPL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D3280E1DFFEE8100E19F5C /* popover_header_bg_TPL@2x.png */; };
 		C5D328121DFFEE8100E19F5C /* popover_header_bg_TPL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D3280F1DFFEE8100E19F5C /* popover_header_bg_TPL@3x.png */; };
+		C5D328151E001B8200E19F5C /* IntialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328141E001B8200E19F5C /* IntialViewController.m */; };
+		C5D328171E001D3100E19F5C /* bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C5D328161E001D3100E19F5C /* bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,9 @@
 		C5D3280D1DFFEE8100E19F5C /* popover_header_bg_TPL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popover_header_bg_TPL.png; sourceTree = "<group>"; };
 		C5D3280E1DFFEE8100E19F5C /* popover_header_bg_TPL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover_header_bg_TPL@2x.png"; sourceTree = "<group>"; };
 		C5D3280F1DFFEE8100E19F5C /* popover_header_bg_TPL@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover_header_bg_TPL@3x.png"; sourceTree = "<group>"; };
+		C5D328131E001B8200E19F5C /* IntialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntialViewController.h; sourceTree = "<group>"; };
+		C5D328141E001B8200E19F5C /* IntialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntialViewController.m; sourceTree = "<group>"; };
+		C5D328161E001D3100E19F5C /* bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +165,11 @@
 				8BCF34DB1DFEA4450010B68D /* BharatDTO.m */,
 				C5D328011DFEBBC300E19F5C /* PostViewController.h */,
 				C5D328021DFEBBC300E19F5C /* PostViewController.m */,
+				C5D328161E001D3100E19F5C /* bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3 */,
 				C5D3280A1DFFCDA500E19F5C /* ProductsViewController.h */,
 				C5D3280B1DFFCDA500E19F5C /* ProductsViewController.m */,
+				C5D328131E001B8200E19F5C /* IntialViewController.h */,
+				C5D328141E001B8200E19F5C /* IntialViewController.m */,
 			);
 			path = "Bharat+";
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 				8B98D8E61E000162000ECA71 /* pastedImage@2x.png in Resources */,
 				8BCF34BD1DFE9B140010B68D /* Assets.xcassets in Resources */,
 				C5D328101DFFEE8100E19F5C /* popover_header_bg_TPL.png in Resources */,
+				C5D328171E001D3100E19F5C /* bharathumkojaansepyarahai-lyricvideohindienglish_cutted.mp3 in Resources */,
 				C5D328121DFFEE8100E19F5C /* popover_header_bg_TPL@3x.png in Resources */,
 				8BCF34BB1DFE9B140010B68D /* Main.storyboard in Resources */,
 			);
@@ -253,6 +262,7 @@
 				C5D328081DFFC1F800E19F5C /* NewsFeedCell.m in Sources */,
 				C5D328091DFFC1F800E19F5C /* NewsFeedViewController.m in Sources */,
 				C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */,
+				C5D328151E001B8200E19F5C /* IntialViewController.m in Sources */,
 				8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */,
 				8BCF34B21DFE9B140010B68D /* main.m in Sources */,
 				8B98D8E91E0007C2000ECA71 /* MBProgressHUD.m in Sources */,
@@ -369,13 +379,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Mabry (W797N6SBRN)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bharat+",
 				);
 				INFOPLIST_FILE = "Bharat+/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Genpact.Bharat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apexcapitalcorp.clientProspectAppAlpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -384,13 +396,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Mabry (W797N6SBRN)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bharat+",
 				);
 				INFOPLIST_FILE = "Bharat+/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Genpact.Bharat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apexcapitalcorp.clientProspectAppAlpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

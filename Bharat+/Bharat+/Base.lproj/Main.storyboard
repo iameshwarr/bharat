@@ -775,6 +775,106 @@
             </objects>
             <point key="canvasLocation" x="901.5" y="137.25"/>
         </scene>
+        <!--Intial View Controller-->
+        <scene sceneID="JQa-0a-r9F">
+            <objects>
+                <viewController storyboardIdentifier="IntialViewController" id="ZL8-Pw-elG" customClass="IntialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcm-ZI-M7E"/>
+                        <viewControllerLayoutGuide type="bottom" id="H4U-sP-YTm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6fR-9h-AoK">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qS-X1-EbH">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <string key="text">Hindustani naam hamara hai
+Sabse pyaara desh hamara hai
+Hindustani naam hamara hai
+Sabse pyaara desh hamara hai
+Janmbhoomi hai hamari shaan se kahenge hum
+Sab hi to bhai bhai pyaar se rahenge hum
+Hindustani naam hamara hai
+Sabse pyaara desh hamara hai
+
+Aassam se gujarat tak
+Bengal se maharashtra tak
+Jaati kai hum ek hain
+Bhaasha kai sur ek hai
+Kashmir se madras tak
+Keh do sabhi hum ek hain
+Aawaaz do hum ek hain
+Jaago .</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ez-gi-WGo">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="I Love India!"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="ZL8-Pw-elG" eventType="touchUpInside" id="TOR-qi-4tr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8qS-X1-EbH" firstAttribute="leading" secondItem="6fR-9h-AoK" secondAttribute="leading" constant="187" id="AHQ-7A-Oj3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="9ez-gi-WGo" firstAttribute="leading" secondItem="6fR-9h-AoK" secondAttribute="leading" constant="177" id="E9S-HH-d1X">
+                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="8qS-X1-EbH" firstAttribute="top" secondItem="6fR-9h-AoK" secondAttribute="top" id="Iew-Z0-3td"/>
+                            <constraint firstItem="H4U-sP-YTm" firstAttribute="top" secondItem="8qS-X1-EbH" secondAttribute="bottom" constant="602" id="Ja2-10-Cvz">
+                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="8qS-X1-EbH" secondAttribute="trailing" constant="171" id="V2w-H3-Xfg">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="9ez-gi-WGo" secondAttribute="trailing" constant="177" id="WD7-oS-M4I">
+                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="9ez-gi-WGo" firstAttribute="top" secondItem="8qS-X1-EbH" secondAttribute="bottom" constant="29" id="hJL-YG-ZbJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8qS-X1-EbH"/>
+                                <exclude reference="9ez-gi-WGo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AHQ-7A-Oj3"/>
+                                <exclude reference="Iew-Z0-3td"/>
+                                <exclude reference="V2w-H3-Xfg"/>
+                                <exclude reference="E9S-HH-d1X"/>
+                                <exclude reference="WD7-oS-M4I"/>
+                                <exclude reference="hJL-YG-ZbJ"/>
+                                <exclude reference="Ja2-10-Cvz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="8qS-X1-EbH"/>
+                                <include reference="9ez-gi-WGo"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AHQ-7A-Oj3"/>
+                                <include reference="Iew-Z0-3td"/>
+                                <include reference="V2w-H3-Xfg"/>
+                                <include reference="E9S-HH-d1X"/>
+                                <include reference="WD7-oS-M4I"/>
+                                <include reference="hJL-YG-ZbJ"/>
+                                <include reference="Ja2-10-Cvz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcD-qn-niq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534.5" y="-145.5"/>
+        </scene>
         <!--News Feed View Controller-->
         <scene sceneID="dDW-R9-NgP">
             <objects>
