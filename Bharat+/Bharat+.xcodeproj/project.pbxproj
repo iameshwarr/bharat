@@ -28,6 +28,8 @@
 		8BCF34E21DFEB11D0010B68D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34E11DFEB11D0010B68D /* Security.framework */; };
 		8BCF34E41DFEB1660010B68D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF34E31DFEB1660010B68D /* MobileCoreServices.framework */; };
 		C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328021DFEBBC300E19F5C /* PostViewController.m */; };
+		C5D328081DFFC1F800E19F5C /* NewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */; };
+		C5D328091DFFC1F800E19F5C /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D328071DFFC1F800E19F5C /* NewsFeedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,10 @@
 		8BCF34E31DFEB1660010B68D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C5D328011DFEBBC300E19F5C /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		C5D328021DFEBBC300E19F5C /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		C5D328041DFFC1F800E19F5C /* NewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedCell.h; sourceTree = "<group>"; };
+		C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedCell.m; sourceTree = "<group>"; };
+		C5D328061DFFC1F800E19F5C /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
+		C5D328071DFFC1F800E19F5C /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,10 @@
 		8BCF34AF1DFE9B140010B68D /* Bharat+ */ = {
 			isa = PBXGroup;
 			children = (
+				C5D328041DFFC1F800E19F5C /* NewsFeedCell.h */,
+				C5D328051DFFC1F800E19F5C /* NewsFeedCell.m */,
+				C5D328061DFFC1F800E19F5C /* NewsFeedViewController.h */,
+				C5D328071DFFC1F800E19F5C /* NewsFeedViewController.m */,
 				8BCF34CA1DFEA0A30010B68D /* Bolts.framework */,
 				8BCF34CB1DFEA0A30010B68D /* Parse.framework */,
 				8BCF34B31DFE9B140010B68D /* AppDelegate.h */,
@@ -214,6 +224,8 @@
 			files = (
 				8BCF34B81DFE9B140010B68D /* ViewController.m in Sources */,
 				8BCF34B51DFE9B140010B68D /* AppDelegate.m in Sources */,
+				C5D328081DFFC1F800E19F5C /* NewsFeedCell.m in Sources */,
+				C5D328091DFFC1F800E19F5C /* NewsFeedViewController.m in Sources */,
 				C5D328031DFEBBC300E19F5C /* PostViewController.m in Sources */,
 				8BCF34C91DFE9F900010B68D /* BharatQueryController.m in Sources */,
 				8BCF34B21DFE9B140010B68D /* main.m in Sources */,
