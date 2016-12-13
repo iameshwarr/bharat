@@ -90,8 +90,8 @@
     
     if([type isEqualToString:@"Request"])
     {
-        cell.btnWidthConstraint.constant=90;
-        [cell.feedBtnLabel setTitle:@"Attending" forState:UIControlStateNormal];
+        cell.btnWidthConstraint.constant=75;
+        [cell.feedBtnLabel setTitle:@"Attend" forState:UIControlStateNormal];
         
    
         NSMutableAttributedString *attStringForrequestInfoBtn= [NSMutableAttributedString new];
